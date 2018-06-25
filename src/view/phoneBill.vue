@@ -131,7 +131,7 @@ export default {
         url: sendUrl
       }).then(response => {
         wx.config({
-          debug: true,
+          debug: false,
           appId: 'wx8b6bb04ed1ac3b29',
           timestamp: response.content.timestamp,
           nonceStr: response.content.noncestr,
@@ -188,7 +188,9 @@ export default {
             signType: 'MD5',
             paySign: res.content.sign,
             success: function (res) {
-              // 支付成功后的回调函数
+              that.$router.push({
+                path: '/wechat_pub/mobileService'
+              })
             }
           })
         }
