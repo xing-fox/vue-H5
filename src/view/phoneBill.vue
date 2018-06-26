@@ -32,9 +32,18 @@ export default {
       priceCount: 0,
       moneyList: [],
       type: '',
-      payType: this.$route.query.payType,
+      payType: this.$route.query.payType, // 充值类型 0 话费 1 流量
       parameter_id: '',
       activeIndex: -1
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      this.init()
+      this.shareWx()
+      if (this.payType === 0) {
+        this.costInit()
+      }
     }
   },
   created () {

@@ -18,6 +18,9 @@ const AddrEdit = resolve => require(['@/view/addrEdit'], resolve)
 const Chat = resolve => require(['@/view/chat'], resolve)
 const PhoneBill = resolve => require(['@/view/phoneBill'], resolve)
 const MobileService = resolve => require(['@/view/mobileService'], resolve)
+const BillList = resolve => require(['@/view/billList'], resolve)
+const MobileList = resolve => require(['@/view/mobileList'], resolve)
+
 /*
 ** @/view/goodsIndex 商品详情
 */
@@ -78,14 +81,32 @@ export default new Router({
       meta: {
         title: '移动业务'
       },
-      children: [{
-        path: 'PhoneBill',
-        name: 'phoneBill',
-        component: PhoneBill,
-        meta: {
-          title: '手机充值'
+      children: [
+        {
+          path: 'PhoneBill',
+          name: 'phoneBill',
+          component: PhoneBill,
+          meta: {
+            title: '手机充值'
+          }
+        },
+        {
+          path: 'billList',
+          name: 'BillList',
+          component: BillList,
+          meta: {
+            title: '话费账单查询'
+          }
+        },
+        {
+          path: 'mobileList',
+          name: 'MobileList',
+          component: MobileList,
+          meta: {
+            title: '移动套餐办理'
+          }
         }
-      }]
+      ]
     },
     {
       path: '/wechat_pub/coupon',

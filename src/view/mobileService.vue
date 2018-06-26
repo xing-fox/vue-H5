@@ -11,7 +11,7 @@
                     <li><img src="../images/icon/home_ico_flow@2x.png"/><li>
                     <li><div>充流量</div></li>
                 </ul>
-                <ul @click="getAll(4)">
+                <ul @click="getBillList()">
                     <li><img src="../images/icon/home_ico_bill@2x.png"/><li>
                     <li><div>查账单</div></li>
                 </ul>
@@ -181,7 +181,10 @@ export default {
       })
     },
     getAll (mobileType) {
-      window.location.href = 'https://test.xclerk.com/mrsyg/YunHaiTongProject/public_tab/html/mobile_service_details.html?contractTypeId=' + mobileType
+      this.$router.push({path: 'mobileService/mobileList', query: {contractTypeId: mobileType}})
+    },
+    getBillList () {
+      this.$router.push({path: 'mobileService/billList'})
     }
   }
 }
