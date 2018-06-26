@@ -72,15 +72,15 @@ export default {
     /**
      * 登录接口信息
      */
-    self.openId = 'o4FLT1S5omU0ocpWy7PgNoNWYgGA'
-    window.localStorage.setItem('openId', 'o4FLT1S5omU0ocpWy7PgNoNWYgGA')
+    // self.openId = 'o4FLT1S5omU0ocpWy7PgNoNWYgGA'
+    // window.localStorage.setItem('openId', 'o4FLT1S5omU0ocpWy7PgNoNWYgGA')
     self.LoadingingStatus(true)
     self.$http.Wxlogin({
       code: window.localStorage.getItem('Code') || ''
     }).then(res => {
       if (res.success) {
         self.openId = res.content.pub_openid
-        // window.localStorage.setItem('openId', res.content.pub_openid)
+        window.localStorage.setItem('openId', res.content.pub_openid)
       }
       window.localStorage.setItem('shareUrl', location.href.split('#')[0])
     }).then(() => {
