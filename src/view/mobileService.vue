@@ -79,6 +79,7 @@ export default {
     }
   },
   created () {
+    console.log(this.$appId)
     let self = this
     // self.openId = 'o4FLT1S5omU0ocpWy7PgNoNWYgGA'
     // window.localStorage.setItem('openId', 'o4FLT1S5omU0ocpWy7PgNoNWYgGA')
