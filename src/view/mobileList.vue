@@ -16,9 +16,9 @@
                             <i class="iph"></i><span>电话</span>
                             </div>
                         </div>
-                        <div class="address" v-if="item.shopAddress ">
+                        <div class="address" v-if="item.shopAddress">
                           <i class="addr"></i>
-                          <span>{{ item.shopAddress }}</span>
+                          <span>{{ item.shopAddress || '' }}</span>
                         </div>
                     </li>
                 </ul>
@@ -56,7 +56,7 @@ export default {
         this.LoadingingStatus(false)
         if (res.success && res.content) {
           for (let i = 0; i < res.content.length; i++) {
-            res.content[i].imageUri = 'http://www.xclerk.com/upload/' + res.content[i].imageUri
+            res.content[i].imageUri = that.$global.imageUrl + res.content[i].imageUri
             that.mobileList.push(res.content[i])
           }
         }
@@ -77,7 +77,7 @@ export default {
       }).then(response => {
         wx.config({
           debug: false,
-          appId: self.$appId,
+          appId: self.$global.appId,
           timestamp: response.content.timestamp,
           nonceStr: response.content.noncestr,
           signature: response.content.signature,
@@ -126,7 +126,6 @@ export default {
         ul li img{
             margin-left: .2rem;
             width: 3.35rem;
-            height: 1.85rem;
         }
         .title{
             display: flex;

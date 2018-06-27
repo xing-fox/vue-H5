@@ -5,6 +5,7 @@ import App from './App'
 import axios from 'axios'
 import store from '@/store'
 import router from './router'
+import global from './global'
 import http from '@/fetch/api'
 import fastclick from 'fastclick'
 import {Alert, Confirm, Toast} from 'wc-messagebox'
@@ -14,14 +15,7 @@ Vue.use(Alert, {})
 Vue.use(Confirm, {})
 Vue.use(Toast, {})
 
-/**
- * 测试appid
- */
-Vue.prototype.$appId = 'wx8b6bb04ed1ac3b29'
-/**
- * 生产appid
- */
-// Vue.prototype.$appId = 'wxa5b9d93b9a8d3283'
+Vue.prototype.$global = global
 Vue.prototype.$http = http
 Vue.prototype.axios = axios
 Vue.config.productionTip = false

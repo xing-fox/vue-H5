@@ -1,7 +1,7 @@
 <template>
   <div class="all">
     <div class="title">
-      <div class="phone"><input type="tel" v-model="phoneNum"  v-on:input ="inputFunc"/></div>
+      <div class="phone"><input type="tel" v-model="phoneNum" placeholder="请输入手机号"  v-on:input ="inputFunc"/></div>
       <div class="info">当前充值手机号</div>
     </div>
     <div class="content">
@@ -141,7 +141,7 @@ export default {
       }).then(response => {
         wx.config({
           debug: false,
-          appId: self.$appId,
+          appId: self.$global.appId,
           timestamp: response.content.timestamp,
           nonceStr: response.content.noncestr,
           signature: response.content.signature,
@@ -190,7 +190,7 @@ export default {
       }).then(res => {
         if (res.success && res.content) {
           wx.chooseWXPay({
-            appId: that.$appId,
+            appId: that.$global.appId,
             timestamp: res.content.timestamp,
             nonceStr: res.content.noncestr,
             package: res.content.wxpay_package,
@@ -231,7 +231,7 @@ export default {
       input {
         -webkit-appearance: none;
         color: #666;
-        font-size: 0.27rem;
+        font-size: 0.2rem;
         border: none;
         width: 100%;
         height: 0.29rem;

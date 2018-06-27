@@ -115,7 +115,7 @@ export default {
           if (res.success && res.content) {
             if (res.content.length >= 2) {
               for (let i = 0; i < 2; i++) {
-                res.content[i].imageUri = 'http://www.xclerk.com/upload/' + res.content[i].imageUri
+                res.content[i].imageUri = that.$global.imageUrl + res.content[i].imageUri
                 if (arg === 1) {
                   that.mobileList.push(res.content[i])
                 }
@@ -128,7 +128,7 @@ export default {
               }
             } else {
               for (let i = 0; i < res.content.length; i++) {
-                res.content[i].imageUri = 'http://www.xclerk.com/upload/' + res.content[i].imageUri
+                res.content[i].imageUri = that.$global.imageUrl + res.content[i].imageUri
                 if (arg === 1) {
                   that.mobileList.push(res.content[i])
                 }
@@ -165,7 +165,7 @@ export default {
       }).then(response => {
         wx.config({
           debug: false,
-          appId: self.$appId,
+          appId: self.$global.appId,
           timestamp: response.content.timestamp,
           nonceStr: response.content.noncestr,
           signature: response.content.signature,
@@ -279,6 +279,9 @@ export default {
                     margin-right: .1rem;
                 }
              }
+                ul li{
+                  width: 100%;
+                }
                 ul li div{
                     font-size: .15rem;
                     color: #222222;
@@ -287,9 +290,9 @@ export default {
                     margin: .1rem .1rem .05rem .1rem;
                 }
                 ul li img{
-                    margin: .1rem 0 .05rem .2rem;
-                    width: 1.88rem;
-                    height: 1.05rem;
+                    padding: .1rem .15rem .05rem ;
+                    width: 100%;
+                    box-sizing: border-box;
                 }
             }
         }

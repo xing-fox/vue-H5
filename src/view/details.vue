@@ -254,7 +254,7 @@ export default {
       }).then(response => {
         wx.config({
           debug: false,
-          appId: self.$appId,
+          appId: self.$global.appId,
           timestamp: response.content.timestamp,
           nonceStr: response.content.noncestr,
           signature: response.content.signature,
