@@ -14,6 +14,7 @@ Vue.use(Alert, {})
 Vue.use(Confirm, {})
 Vue.use(Toast, {})
 
+Vue.prototype.$appId = 'wx8b6bb04ed1ac3b29'
 Vue.prototype.$http = http
 Vue.prototype.axios = axios
 Vue.config.productionTip = false
