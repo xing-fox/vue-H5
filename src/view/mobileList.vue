@@ -6,17 +6,17 @@
                 <ul>
                     <li v-for="(item, index) in mobileList" :key="index">
                         <div class="header">{{ item.contractName }}</div>
-                        <div class="time">
+                        <div class="time" v-if="item.createdAt">
                           <i class="timePic"></i><span class="timeValue">{{ item.createdAt }} 开始</span>
                         </div>
                         <img :src= "item.imageUri" @click="showPictureFunc(item.imageUri)">
-                        <div class="title">
+                        <div class="title" v-if="item.shopName && item.shopMobile">
                           <div class="shopname">{{ item.shopName }}</div>
                           <div class="phone" @click="call(item.shopMobile)">
                             <i class="iph"></i><span>电话</span>
                             </div>
                         </div>
-                        <div class="address">
+                        <div class="address" v-if="item.shopAddress ">
                           <i class="addr"></i>
                           <span>{{ item.shopAddress }}</span>
                         </div>
@@ -56,7 +56,7 @@ export default {
         this.LoadingingStatus(false)
         if (res.success && res.content) {
           for (let i = 0; i < res.content.length; i++) {
-            res.content[i].imageUri = 'http://test.xclerk.com/upload/' + res.content[i].imageUri
+            res.content[i].imageUri = 'http://www.xclerk.com/upload/' + res.content[i].imageUri
             that.mobileList.push(res.content[i])
           }
         }
@@ -77,7 +77,7 @@ export default {
       }).then(response => {
         wx.config({
           debug: false,
-          appId: 'wx8b6bb04ed1ac3b29',
+          appId: 'wxa5b9d93b9a8d3283',
           timestamp: response.content.timestamp,
           nonceStr: response.content.noncestr,
           signature: response.content.signature,

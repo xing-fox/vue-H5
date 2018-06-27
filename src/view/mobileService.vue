@@ -115,7 +115,7 @@ export default {
           if (res.success && res.content) {
             if (res.content.length >= 2) {
               for (let i = 0; i < 2; i++) {
-                res.content[i].imageUri = 'http://test.xclerk.com/upload/' + res.content[i].imageUri
+                res.content[i].imageUri = 'http://www.xclerk.com/upload/' + res.content[i].imageUri
                 if (arg === 1) {
                   that.mobileList.push(res.content[i])
                 }
@@ -128,7 +128,7 @@ export default {
               }
             } else {
               for (let i = 0; i < res.content.length; i++) {
-                res.content[i].imageUri = 'http://test.xclerk.com/upload/' + res.content[i].imageUri
+                res.content[i].imageUri = 'http://www.xclerk.com/upload/' + res.content[i].imageUri
                 if (arg === 1) {
                   that.mobileList.push(res.content[i])
                 }
@@ -165,7 +165,7 @@ export default {
       }).then(response => {
         wx.config({
           debug: false,
-          appId: 'wx8b6bb04ed1ac3b29',
+          appId: 'wxa5b9d93b9a8d3283',
           timestamp: response.content.timestamp,
           nonceStr: response.content.noncestr,
           signature: response.content.signature,

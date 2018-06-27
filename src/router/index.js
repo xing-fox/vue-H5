@@ -20,6 +20,7 @@ const PhoneBill = resolve => require(['@/view/phoneBill'], resolve)
 const MobileService = resolve => require(['@/view/mobileService'], resolve)
 const BillList = resolve => require(['@/view/billList'], resolve)
 const MobileList = resolve => require(['@/view/mobileList'], resolve)
+const StoreDetails = resolve => require(['@/view/storeDetails'], resolve)
 
 /*
 ** @/view/goodsIndex 商品详情
@@ -103,7 +104,7 @@ export default new Router({
           name: 'MobileList',
           component: MobileList,
           meta: {
-            title: '移动套餐办理'
+            title: '移动业务办理'
           }
         }
       ]
@@ -174,6 +175,15 @@ export default new Router({
           ]
         }
       ]
+    },
+    /** 门店详情 */
+    {
+      path: '/wechat_pub/storeDetails',
+      name: 'StoreDetails',
+      component: StoreDetails,
+      meta: {
+        title: '门店详情'
+      }
     }
   ]
 })
