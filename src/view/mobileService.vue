@@ -79,7 +79,6 @@ export default {
     }
   },
   created () {
-    console.log(this.$appId)
     let self = this
     // self.openId = 'o4FLT1S5omU0ocpWy7PgNoNWYgGA'
     // window.localStorage.setItem('openId', 'o4FLT1S5omU0ocpWy7PgNoNWYgGA')
@@ -166,7 +165,7 @@ export default {
       }).then(response => {
         wx.config({
           debug: false,
-          appId: 'wxa5b9d93b9a8d3283',
+          appId: self.$appId,
           timestamp: response.content.timestamp,
           nonceStr: response.content.noncestr,
           signature: response.content.signature,

@@ -14,7 +14,14 @@ Vue.use(Alert, {})
 Vue.use(Confirm, {})
 Vue.use(Toast, {})
 
+/**
+ * 测试appid
+ */
 Vue.prototype.$appId = 'wx8b6bb04ed1ac3b29'
+/**
+ * 生产appid
+ */
+// Vue.prototype.$appId = 'wxa5b9d93b9a8d3283'
 Vue.prototype.$http = http
 Vue.prototype.axios = axios
 Vue.config.productionTip = false

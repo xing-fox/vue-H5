@@ -141,7 +141,7 @@ export default {
       }).then(response => {
         wx.config({
           debug: false,
-          appId: 'wxa5b9d93b9a8d3283',
+          appId: self.$appId,
           timestamp: response.content.timestamp,
           nonceStr: response.content.noncestr,
           signature: response.content.signature,
@@ -190,7 +190,7 @@ export default {
       }).then(res => {
         if (res.success && res.content) {
           wx.chooseWXPay({
-            appId: 'wxa5b9d93b9a8d3283',
+            appId: that.$appId,
             timestamp: res.content.timestamp,
             nonceStr: res.content.noncestr,
             package: res.content.wxpay_package,
