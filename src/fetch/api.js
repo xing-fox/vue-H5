@@ -202,5 +202,41 @@ export default {
   /** 支付 */
   pay (params) {
     return post('/yunhe/wechat/payment/paymyorder', params)
+  },
+  /** 店铺详情 */
+  shopDetails (params) {
+    return post('yunhe/wechat/shop/shopInfo', params)
+  },
+  /** 最热笔记 */
+  shopNotes (params) {
+    return post('yunhe/wechat/note/nearnotes', params)
+  },
+  /** 店员 */
+  getAssistants (params) {
+    return post('yunhe/wechat/shop/shopAssistant', params)
+  },
+  /** 最热商品 */
+  getGoods (params) {
+    return post('yunhe/wechat/goods/goodslist', params)
+  },
+  /** 关注店铺 */
+  collectionShop (params) {
+    return post('yunhe/wechat/collection/collectionShop', params)
+  },
+  /** 商品筛选 */
+  shopSelectList (params) {
+    return post('yunhe/wechat/shop/shopselect', params)
+  },
+  /** 筛选 品牌 */
+  shopBrand (params) {
+    return post('yunhe/wechat/shop/shopbrand', params)
+  },
+  /** 初始化运营商 */
+  supplierList (params) {
+    return post('yunhe/wechat/shop/shopsupplier', params)
+  },
+  /** 侧滑筛选查询商品 */
+  chooseShopList (params) {
+    return post('yunhe/wechat/shop/shopscreen', params)
   }
 }

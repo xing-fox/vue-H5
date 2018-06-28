@@ -37,19 +37,10 @@ export default {
       activeIndex: -1
     }
   },
-  watch: {
-    '$route' (to, from) {
-      this.init()
-      this.shareWx()
-      if (this.payType === 0) {
-        this.costInit()
-      }
-    }
-  },
   created () {
     this.init()
     this.shareWx()
-    if (this.payType === 0) {
+    if (this.payType === 0 || this.payType === '0') {
       this.costInit()
     }
   },
@@ -63,7 +54,7 @@ export default {
         this.LoadingingStatus(false)
         if (res.success && res.content) {
           this.phoneNum = res.content.phone
-          if (this.payType === 1 && this.phoneNum) {
+          if ((this.payType === 1 || this.payType === '1') && this.phoneNum) {
             this.getPhoneInit()
           }
         }
@@ -77,10 +68,8 @@ export default {
         })
       }).then(res => {
         this.moneyList = []
-        if (res.success && res.content) {
-          for (let i = 0; i < res.content.length; i++) {
-            that.moneyList.push(res.content[i])
-          }
+        for (let i = 0; i < res.content.length; i++) {
+          that.moneyList.push(res.content[i])
         }
       })
     },
@@ -93,15 +82,13 @@ export default {
         })
       }).then(res => {
         this.moneyList = []
-        if (res.success && res.content) {
-          for (let i = 0; i < res.content.length; i++) {
-            that.moneyList.push(res.content[i])
-          }
+        for (let i = 0; i < res.content.length; i++) {
+          that.moneyList.push(res.content[i])
         }
       })
     },
     inputFunc () { // 充值流量 输入前三位
-      if (this.payType === 1) {
+      if (this.payType === 1 || this.payType === '1') {
         if (this.phoneNum.length === 3) {
           this.$http.judgePhoneNum().then(res => {
             if (res.success && res.content) {
