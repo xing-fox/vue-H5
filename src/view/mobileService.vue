@@ -92,6 +92,8 @@ export default {
       if (res.success) {
         self.openId = res.content.pub_openid
         window.localStorage.setItem('openId', res.content.pub_openid)
+      } else {
+        self.openId = window.localStorage.getItem('openId')
       }
       window.localStorage.setItem('shareUrl', location.href.split('#')[0])
     }).then(() => {
